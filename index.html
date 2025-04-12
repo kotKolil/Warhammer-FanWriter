@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <script src = "main.js"></script>
+    <link rel="stylesheet type="text/css" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(
+        () => {
+            $("#warning").ready(
+                () => {
+                    if (getCookie("api-token") != "") {
+                        console.log("token found")
+                    }
+                    else {
+                        $("#warning").attr("class", "warn");
+                        $("#warning").html("you api token not set");
+                    }
+                }
+            )
+
+        }
+    )
+    </script>
+</head>
+<body>
+<div id = "warning">
+</div>
+<div class = "content">
+    <div>
+        <p>Шаг 1.Выберите тему:</p>
+        <select id="theme" name="theme">
+            <option>СМ превозмогают</option>
+            <option>ИГ героически умирает</option>
+            <option>Инквизиция жгет еретиков</option>
+            <option>Все умирают за Императора</option>
+            <option>Отряд СМов спасает меч</option>
+            <option>Гор, Хорус и Горус</option>
+            <option>ДА пытают падших-слаанешитов</option>
+            <option>Правильные эльдары</option>
+            <option>Мистические тираниды</option>
+
+        </select>
+
+        <p>Шаг 4.Определите противников:</p>
+        <ol type = "I">
+            <li>Эльдары <input class = "warrior-num" type = "number"></li>
+            <li>Хаос <input class = "warrior-num" type = "number"></li>
+            <li>Тираниды <input  class = "warrior-num" type = "number"></li>
+            <li>Критики с форума <input class = "warrior-num"  type = "number"></li>
+        </ol>
+        <p>Шаг 6. Дополнительные условия</P>
+        <span>При
+            <select>
+                <option>Императоре</option>
+                <option>Инквизиторе</option>
+                <option>Вармастере</option>
+            </select>
+            такой ереси не было<p>
+        </span>
+        <span>
+            <span>
+                необходимо
+                <select>
+                    <option>бороться с ересью</option>
+                    <option>бороться с тиранидами</option>
+                    <option>борорться с культистами</option>
+                    <option>умереть за Императора</option>
+                </select>
+            </span>
+        </span>
+    </div>
+    <div>
+        <p>Шаг 2. Определите величину ПАФОСА:</p>
+        <input type = "range" />
+    </div>
+</div>
+<img class="left-spacemarine" src = "./img/left-spacemarine.png" />
+<img class="logo" src = "./img/logo.png" />
+</body>
+</html>
