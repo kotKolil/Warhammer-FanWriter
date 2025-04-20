@@ -26,7 +26,6 @@ body {
     margin-top:5vh;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 15px;
     width: 100vh;
     height: 40vw;
 }
@@ -38,9 +37,7 @@ body {
 }
 
 .logo {
-    position: fixed;
-    left: 3px;
-    top: 10vh;
+    margin: auto;
 }
 
 .warrior-num {
@@ -53,4 +50,31 @@ body {
     width: 8vw;
     height: 6vh;
     margin: 30px;
+}
+
+.topDiv {
+    position: absolute;
+    top:0px;
+    z-index: 2;
+    background-color: rgba(0,0,0,80%);
+    width: 100vw;
+    height: 100vh;
+}
+
+.topWindow {
+    border: 1px black solid;
+    background-color: silver;
+    border-radius: 15px;
+    text-align: center;
+    padding: 5px;
+    flex-direction: column;
+}
+
+.topWindow textarea {
+    background-color: rgba(255, 255, 255, 30%);
+    height: 50vh;
+    width: 40vw;
+    border: 0px black dashed;
+    border-radius: 10px;
+    resize: none;
 }

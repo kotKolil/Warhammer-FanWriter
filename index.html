@@ -1,159 +1,94 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset=utf-8>
-    <script src = "main.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script>
-    $(document).ready(
-        () => {
-            $("#warning").ready(
-                () => {
-                    if (getCookie("api-token") != "") {
-                        console.log("token found")
-                    }
-                    else {
-                        console.log("token not found")
-                    }
-                }
-            )
+    <head>
+        <meta charset=utf-8>
+        <title>WahaFanMaster 1.01</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src = "main.js"></script>
+    </head>
+    <body>
+        <div id = "warning">
+        </div>
+        <div class = "content">
+            <div>
+                <img class="logo" src = "./img/logo.png" style="margin: auto;" />
+                <p>Шаг 1.Выберите тему:</p>
+                <select id="fanTheme" name="theme" multiple="multiple" selected = "СМ превозмогают">
+                    <option>СМ превозмогают</option>
+                    <option>ИГ героически умирает</option>
+                    <option>Инквизиция жгет еретиков</option>
+                    <option>Все умирают за Императора</option>
+                    <option>Отряд СМов спасает меч</option>
+                    <option>Гор, Хорус и Горус</option>
+                    <option>ДА пытают падших-слаанешитов</option>
+                    <option>Правильные эльдары</option>
+                    <option>Мистические тираниды</option>
 
-            $("#sendBtn").click(() => {
-              var fanTheme = $("fanTheme")
-
-                var eldarNum = $("#eldarNum").val()
-                var chaosNum = $("#chaosNum").val()
-                var tyranidNums = $("#tyranidNums").val()
-                var forumKritiks = $("#forumKritiks").val()
-
-                var thisHeresyDidNotBe = $("#thisHeresyDidNotBe").val()
-                var marinesWillDo = $("#marinesWillDo").val()
-                var numOfPathos = $("#numOfPathos").val()
-                var levelOfBgKnowledge = $("#levelOfBgKnowledge").val()[0]
-                var enemyReaction = $("#enemyReaction").val()[0]
-                var statisticKnowledge = $("#statisticKnowledge").val()[0]
-
-                var prompt = `напиши мне фанатский рассказ о вселенной вархаммер сорок тысяч. Вживись в роль, температура
-                генерации на 100. Заданы следующие условия:
-                соотнощение врагоы следующие:
-                эльдары ${eldarNum}%
-                хаоситов ${chaosNum}%
-                тираниды ${tyranidNums}%
-                критиков с форума ${forumKritiks}
-
-                при ${thisHeresyDidNotBe} такой ереси не было
-                главные герои будут ${marinesWillDo}
-                величина пафоса будет ${numOfPathos}%
-                уровень знания бэкграунда вселенной вархаммер это ${levelOfBgKnowledge}
-                противники будут ${enemyReaction}
-                статистика вселенной это ${statisticKnowledge}`
-                console.log(prompt)
-                }
-            )
-        }
-    )
-    </script>
-</head>
-<body>
-
-<!--
-input fields id:
-
-fanTheme - theme of fanfik
-
-eldarNum - num of eldar in percent
-chaosNum - num of chaos in percent
-tyranidNums - num of tyranid in percent
-forumKritiks - num of forum kritiks in percent
-
-thisHeresyDidNotBe - by who this heresy did not be
-marinesWillDo - what marines will be doing
-numOfPathos - num of pathos (from 0% to 200%)
-levelOfBgKnowledge - level of background of warhammer knowledge
-enemyReaction - reaction of enemies to marines
-statisticKnowledge - knowledge of statistic
-
--->
-
-<div class = "warn">WahaFanMaster 1.01</div>
-<div id = "warning">
-</div>
-<div class = "content">
-    <div>
-        <p>Шаг 1.Выберите тему:</p>
-        <select id="fanTheme" name="theme" multiple="multiple">
-            <option>СМ превозмогают</option>
-            <option>ИГ героически умирает</option>
-            <option>Инквизиция жгет еретиков</option>
-            <option>Все умирают за Императора</option>
-            <option>Отряд СМов спасает меч</option>
-            <option>Гор, Хорус и Горус</option>
-            <option>ДА пытают падших-слаанешитов</option>
-            <option>Правильные эльдары</option>
-            <option>Мистические тираниды</option>
-
-        </select>
-
-        <p>Шаг 4.Определите противников:</p>
-        <ol type = "I">
-            <li>Эльдары <input id = "eldarNum" class = "warrior-num" type = "number">%</li>
-            <li>Хаос <input id = "chaosNum" class = "warrior-num" type = "number">%</li>
-            <li>Тираниды <input id = "tyranidNums"  class = "warrior-num" type = "number">%</li>
-            <li>Критики с форума <input id = "forumKritiks" class = "warrior-num"  type = "number">%</li>
-        </ol>
-        <p>Шаг 6. Дополнительные условия</P>
-        <span>При
-            <select id = "thisHeresyDidNotBe">
-                <option>Императоре</option>
-                <option>Инквизиторе</option>
-                <option>Вармастере</option>
-            </select>
-            такой ереси не было<p>
-        </span>
-        <span>
-            <span>
-                необходимо
-                <select id = "marinesWillDo">
-                    <option>бороться с ересью</option>
-                    <option>бороться с тиранидами</option>
-                    <option>борорться с культистами</option>
-                    <option>умереть за Императора</option>
                 </select>
-            </span>
-        </span>
-    </div>
-    <div>
-        <p>Шаг 2. Определите величину ПАФОСА:</p>
-        <input type="range" min="0" max="200" id="numOfPathos">
-        <p>Шаг 3. Определите уровень познания бека:</p>
-        <select multiple="multiple" id = "levelOfBgKnowledge" />
-                    <option>играл в ДоВ</option>
-                    <option>Читал флафф</option>
-                    <option>ГВ не правы</option>
-                    <option>ВО на фордже</option>
-        </select>
-        <p>Шаг 3. Определите реакцию противника</p>
-        <select multiple="multiple" id = "enemyReaction">
-            <option>умирают</option>
-            <option>Бегут на героев и умирают</option>
-            <option>Черн. крестовый поход накрывается</option>
-            <option>Вызывают демонов и экстерминируют</option>
-            <option>Тираниды сожрали двух братьев и умирают</option>
-            <option>Аватара задушили голубыми руками</option>
-        </select>
-        <p>Добавьте статические данные</p>
-        <select multiple="multiple" id = "statisticKnowledge">
-            <option>Кодексы 2-3 редакции</option>
-            <option>Статьи из белого гнома 80x-90x годов</option>
-            <option>Поддельные письма-ответы от ГВ</option>
-        </select>
-        <br>
-        <button id="sendBtn" class = "mainBtn">написать</button>
-    </div>
-    <br>
-</div>
-<img class="left-spacemarine" src = "./img/left-spacemarine.png" />
-<img class="logo" src = "./img/logo.png" />
-</body>
+
+                <p>Шаг 4.Определите противников:</p>
+                <ol type = "I">
+                    <li>Эльдары <input id = "eldarNum" class = "warrior-num" type = "number" value="25">%</li>
+                    <li>Хаос <input id = "chaosNum" class = "warrior-num" type = "number" value="25">%</li>
+                    <li>Тираниды <input id = "tyranidNums"  class = "warrior-num" type = "number" value="25">%</li>
+                    <li>Критики с форума <input id = "forumKritiks" class = "warrior-num"  type = "number" value="25">%</li>
+                </ol>
+                <p>Шаг 6. Дополнительные условия</P>
+                <span>При
+                    <select id = "thisHeresyDidNotBe" selected = "Императоре">
+                        <option>Императоре</option>
+                        <option>Инквизиторе</option>
+                        <option>Вармастере</option>
+                    </select>
+                    такой ереси не было<p>
+                </span>
+                <span>
+                    <span>
+                        необходимо
+                        <select id = "marinesWillDo" selected = "бороться с ересью">
+                            <option>бороться с ересью</option>
+                            <option>бороться с тиранидами</option>
+                            <option>борорться с культистами</option>
+                            <option>умереть за Императора</option>
+                        </select>
+                    </span>
+                </span>
+            </div>
+            <div>
+                <p>Шаг 2. Определите величину ПАФОСА:</p>
+                <input type="range" min="0" max="200" id="numOfPathos" value = 50 >
+                <p>Шаг 3. Определите уровень познания бека:</p>
+                <select multiple="multiple" id = "levelOfBgKnowledge" selected = "играл в ДоВ" />
+                            <option>играл в ДоВ</option>
+                            <option>Читал флафф</option>
+                            <option>ГВ не правы</option>
+                            <option>ВО на фордже</option>
+                </select>
+                <p>Шаг 3. Определите реакцию противника</p>
+                <select multiple="multiple" id = "enemyReaction" selected = "умирают">
+                    <option>умирают</option>
+                    <option>Бегут на героев и умирают</option>
+                    <option>Черн. крестовый поход накрывается</option>
+                    <option>Вызывают демонов и экстерминируют</option>
+                    <option>Тираниды сожрали двух братьев и умирают</option>
+                    <option>Аватара задушили голубыми руками</option>
+                </select>
+                <p>Добавьте статические данные</p>
+                <select multiple="multiple" id = "statisticKnowledge" selected = "Кодексы 2-3 редакции">
+                    <option>Кодексы 2-3 редакции</option>
+                    <option>Статьи из белого гнома 80x-90x годов</option>
+                    <option>Поддельные письма-ответы от ГВ</option>
+                </select>
+                <br>
+                <button id="sendBtn" class = "mainBtn">написать</button>
+            </div>
+            <br>
+            <div style = "display: flex;flex-direction: column">
+                <p><input type="checkbox" id = "isNotArt" />артилерии нет</p>
+                <p><input type="checkbox" id = "isNotMassWeapon" />оружия массового поражения нет</p>
+            </div>
+        </div>
+        <img class="left-spacemarine" src = "./img/left-spacemarine.png" />
+    </body>
 </html>
