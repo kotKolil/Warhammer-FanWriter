@@ -78,3 +78,35 @@ body {
     border-radius: 10px;
     resize: none;
 }
+#numOfPathos {
+    -webkit-appearance: none; /* Important for custom styling */
+    appearance: none;
+    width: 220px; /* Adjust as needed */
+    height: 50px; /* Track height */
+    outline: none;
+    margin-top: -12px;
+    background: url("scale.png");
+}
+
+/* For Chrome, Safari, Edge */
+#numOfPathos::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 50px;
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 0; /* Adjust if needed */
+    background-color: red;
+}
+
+/* For Firefox */
+#numOfPathos::-moz-range-thumb {
+    width: 3px;
+    height: 50px;
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 0; /* Adjust if needed */
+    border: none; /* Remove default border in Firefox */
+    background-color: red;
+}

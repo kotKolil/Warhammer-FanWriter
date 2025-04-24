@@ -50,7 +50,7 @@ $(document).ready(
                     .addClass("content topWindow")
                     .appendTo($(".topDiv"));
 
-                newWindow.append($("<p>to generate you fan-story, click on button below and go to <a href='http://chat.deepseek.com'>chat.deepseek.com</a> and paste this prompt</p>"))
+                newWindow.append($("<p>чтобы написать свою фан историю пройдите нв <a href='http://chat.deepseek.com'>chat.deepseek.com</a> и вставьте промпт ниже</p>"))
                 newWindow.append($(`<p><textarea>${prompt}</textarea></p>`))
 
                 const button = $('<button>Copy to clipboard</button>');
